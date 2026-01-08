@@ -1,0 +1,10 @@
+{
+  "type": "record",
+  "name": "OrderCompleted",
+  "namespace": "com.demo.orders",
+  "fields": [
+    {"name": "order_id", "type": "string"},
+    {"name": "completed_at", "type": "string"},
+    {"name": "status", "type": {"type": "enum", "name": "Status", "symbols": ["SUCCESS", "FAILED"]}}
+  ]
+}
