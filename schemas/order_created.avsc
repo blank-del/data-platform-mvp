@@ -1,0 +1,12 @@
+{
+  "type": "record",
+  "name": "OrderCreated",
+  "namespace": "com.demo.orders",
+  "fields": [
+    {"name": "order_id", "type": "string"},
+    {"name": "customer_id", "type": "string"},
+    {"name": "price", "type": "double"},
+    {"name": "currency", "type": "string"},
+    {"name": "created_at", "type": "string"}
+  ]
+}
