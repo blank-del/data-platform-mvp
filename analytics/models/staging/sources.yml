@@ -1,0 +1,7 @@
+version: 2
+
+sources:
+  - name: raw
+    tables:
+      - name: order_created
+      - name: order_completed

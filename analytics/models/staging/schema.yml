@@ -1,0 +1,38 @@
+
+version: 2
+
+models:
+  - name: stg_order_created
+    description: "A staging table for order created events"
+    columns:
+      - name: order_id
+        description: "The primary key for this table"
+        data_tests:
+          - unique
+          - not_null
+          - relationships:
+              to: ref('stg_order_completed')
+              field: order_id
+      - name: customer_id
+        description: "The ID of the customer who created the order"
+        data_tests:
+          - not_null
+      - name: currency
+        description: "The currency used for the order"
+        data_tests:
+          - accepted_values:
+              values: ['USD', 'EUR', 'GBP']
+
+  - name: stg_order_completed
+    description: "A staging table for order completed events"
+    columns:
+      - name: order_id
+        description: "The primary key for this table"
+        data_tests:
+          - unique
+          - not_null
+      - name: status
+        description: "The status of the completed order"
+        data_tests:
+          - accepted_values:
+              values: ['SUCCESS', 'FAILED']

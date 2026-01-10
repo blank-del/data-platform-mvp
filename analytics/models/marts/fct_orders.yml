@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: fct_orders
+    description: "Fact table for orders"
+    columns:
+      - order_id:
+          description: "The primary key for the orders fact table"
+          data_tests:
+            - unique
+            - not_null
