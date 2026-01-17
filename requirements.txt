@@ -1,1 +1,2 @@
 duckdb
+dbt-duckdb
