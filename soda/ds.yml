@@ -1,0 +1,5 @@
+type: duckdb 
+name: my_duckdb
+connection: 
+    database: "dbt/mvp.duckdb" # or a supported file path like "dim_employee.parquet"
+    schema: "raw"  # optional, default is "main"

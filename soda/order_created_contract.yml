@@ -1,0 +1,43 @@
+dataset: my_duckdb/raw/order_created
+columns:
+  - name: order_id
+    data_type: varchar
+    checks:
+      - missing:
+          metric: percent
+          must_be_less_than: 10
+      - duplicate:
+
+  - name: customer_id
+    data_type: varchar
+    checks:
+      - missing:
+          metric: percent
+          must_be_less_than: 10
+  
+  - name: price
+    data_type: double
+    checks:
+      - missing:
+          metric: percent
+          must_be_less_than: 10
+
+  - name: currency
+    data_type: enum
+    checks:
+      - invalid:
+          valid_values: ['USD', 'GBP', 'EUR']
+
+  - name: created_at
+    data_type: varchar
+    checks:
+      - missing:
+          metric: percent
+          must_be_less_than: 10
+
+checks:
+  - schema:
+      allow_extra_columns: false
+      allow_other_column_order: false
+  - row_count:
+      must_be_greater_than: 1
