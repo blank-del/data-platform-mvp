@@ -1,0 +1,32 @@
+
+# datasource/database/schema/table
+dataset: my_duckdb/raw/order_completed
+columns:
+  - name: order_id
+    data_type: varchar
+    checks:
+      - missing:
+          metric: percent
+          must_be_less_than: 10
+      - duplicate:
+  
+  - name: completed_at
+    data_type: varchar
+    checks:
+      - missing:
+          metric: percent
+          must_be_less_than: 10
+
+  - name: status
+    data_type: enum
+    checks:
+      - invalid:
+          valid_values: ['SUCCESS', 'FAILED']
+
+checks:
+  - schema:
+      allow_extra_columns: false
+      allow_other_column_order: false
+  - row_count:
+      must_be_greater_than: 1
+

@@ -1,2 +1,5 @@
-duckdb
-dbt-duckdb
+duckdb==1.4.3
+dbt-duckdb==1.10.0
+
+--extra-index-url https://pypi.cloud.soda.io/simple
+soda-duckdb==4.0.4b24
